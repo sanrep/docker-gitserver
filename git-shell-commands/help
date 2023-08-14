@@ -4,16 +4,9 @@ cat <<EOF
 Welcome to the restricted login shell for Git!
 Run 'help' for help, or 'exit' to leave.  Available commands:
 -------------------------------------------------------------
+list          Lists all repositories
+new <name>    Creates a new repository <name>. No need to provide .git extension
+
+Other available shell commands: ls mkdir rm vi
+
 EOF
-
-cd "$(dirname "$0")" || exit 1
-
-for cmd in *
-do
-	case "$cmd" in
-	help) ;;
-	*) [ -f "$cmd" ] && [ -x "$cmd" ] && echo "$cmd" ;;
-	esac
-done
-
-printf '\n'

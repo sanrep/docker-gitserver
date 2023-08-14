@@ -52,12 +52,15 @@ repositories, or change repository descriptions:
 ssh git@localhost -p 2222
 ```
 
-Create and initialise a repository at `/srv/git`:
+Create and initialise a repository:
 ```
-mkdir /srv/git/your-repo.git
-git-init --bare /srv/git/your-repo.git
+new your-repo
 ```
 
+List repositories:
+```
+list
+```
 
 ### Use a Custom Password
 
