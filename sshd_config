@@ -28,6 +28,8 @@
 
 # Authentication:
 
+AuthenticationMethods publickey password
+
 #LoginGraceTime 2m
 #PermitRootLogin prohibit-password
 #StrictModes yes
@@ -55,6 +57,7 @@ AuthorizedKeysFile	.ssh/authorized_keys
 
 # To disable tunneled clear text passwords, change to no here!
 #PasswordAuthentication yes
+#PasswordAuthentication no
 #PermitEmptyPasswords no
 
 # Change to no to disable s/key passwords
