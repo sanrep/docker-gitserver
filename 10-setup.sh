@@ -85,3 +85,10 @@ if [ -n "${REPOSITORIES_HOME_LINK-}" ]; then
         warn "Home link not created."
     fi
 fi
+
+if [ "${NO_INTERACTIVE_LOGIN:-0}" = "1" ]; then
+    cp /no-interactive-login "${GIT_HOME}"/git-shell-commands
+    echo "Interactive login disabled."
+else
+    warn "Interactive login is not disabled."
+fi

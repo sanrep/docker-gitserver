@@ -39,6 +39,9 @@ RUN set -eux; \
         ln -s $(which $c) .; \
     done
 
+# File needed for restricting interactive login
+COPY no-interactive-login /
+
 # Delete Alpine welcome message
 RUN rm /etc/motd
 
