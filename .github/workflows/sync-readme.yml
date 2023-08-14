@@ -3,7 +3,7 @@ name: Sync DockerHub README
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - README-DockerHub.md
       - .github/workflows/sync-readme.yml
@@ -18,8 +18,8 @@ jobs:
     - name: Docker Hub Description
       uses: peter-evans/dockerhub-description@v3
       with:
-        username: 'rockstorm'
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        repository: rockstorm/git-server
+        repository: sanrep/gitserver
         readme-filepath: ./README-DockerHub.md
         short-description: ${{ github.event.repository.description }}
