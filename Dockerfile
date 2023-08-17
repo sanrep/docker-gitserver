@@ -42,6 +42,9 @@ RUN set -eux; \
 # File needed for restricting interactive login
 COPY no-interactive-login /
 
+# Directory for custom SSH host keys
+RUN mkdir /ssh_host_keys
+
 # Delete Alpine welcome message
 RUN rm /etc/motd
 

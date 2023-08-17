@@ -19,7 +19,7 @@ services:
       - ${AUTHORIZED_KEYS_FILE}:/home/git/.ssh/authorized_keys
 
       # Directory with host SSH keys to use instead of the default ones
-      - ${SSH_HOST_KEYS_DIR}:${SSH_HOST_KEYS_PATH}:ro
+      - ${SSH_HOST_KEYS_DIR}:/ssh_host_keys:ro
 
       # Custom configuration file for the OpenSSH daemon
       - ${SSHD_CONFIG_FILE:-./sshd_config}:/etc/ssh/sshd_config:ro

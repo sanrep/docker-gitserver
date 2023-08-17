@@ -65,15 +65,14 @@ else
 fi
 
 # Replace host SSH keys (if given)
-if [ -n "${SSH_HOST_KEYS_PATH-}" ]; then
-    if [ -d "${SSH_HOST_KEYS_PATH}" ]; then
-        cd /etc/ssh
-        rm -rf ssh_host_*
-        cp "${SSH_HOST_KEYS_PATH}"/ssh_host_* .
-    else
-        warn "Directory '${SSH_HOST_KEYS_PATH}' not found."
-        warn "Default SSH host keys will be used instead."
-    fi
+if ls /ssh_host_keys/ssh_host_* 1>/dev/null 2>&1; then
+    cd /etc/ssh
+    rm -rf ssh_host_*
+    cp /ssh_host_keys/ssh_host_* .
+    echo "New host keys applied."
+else
+    warn "Didn't find any custom ssh host keys."
+    warn "Default SSH host keys will be used. Possible security problem."
 fi
 
 # Link the repositories folder on git user's home directory
