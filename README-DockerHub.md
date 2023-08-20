@@ -86,7 +86,20 @@ new your-repo
 
 To clone repository from git server:
 ```sh
-git clone git@gitserverhost.com:2222/your-repo.git
+git clone ssh://git@gitserverhost.com:2222/srv/git/your-repo.git
+```
+
+
+#### Use shorter URLs
+
+You can set shorter URLs as described in [source][9]. Then you can login into server:
+```sh
+ssh my_git_server
+```
+
+To clone repository:
+```sh
+git clone my_git_server:git/your-repo.git
 ```
 
 
@@ -96,6 +109,7 @@ See [Variants][4] and [Tagging Scheme][5].
 
 [4]: https://github.com/sanrep/docker-gitserver#variants
 [5]: https://github.com/sanrep/docker-gitserver#tagging-scheme
+[9]: https://github.com/sanrep/docker-gitserver#enable-use-of-shorter-git-urls
 
 
 ## License

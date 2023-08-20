@@ -87,12 +87,12 @@ list
 
 To clone repository from git server:
 ```sh
-git clone git@gitserverhost.com:2222/your-repo.git
+git clone git@gitserverhost.com:2222/git/your-repo.git
 ```
 
 As described in [Enable Use of Shorter Git URLs](#enable-use-of-shorter-git-urls) command can be shortened to:
 ```sh
-git clone my-git-server:your-repo.git
+git clone my-git-server:git/your-repo.git
 ```
 
 
@@ -209,15 +209,7 @@ SSH_HOST_KEYS_DIR=/path/to/custom/host/keys/dir
 
 By default, git URLs to you repositories are in the form of:
 ```sh
-git clone git@gitserverhost.com:2222/srv/git/your_repo.git
-```
-
-By setting the environment variable `REPOSITORIES_HOME_LINK` to
-`/srv/git` a link will be created into the git user home
-directory so that your git URLs don't require the repository absolute
-path:
-```sh
-git clone git@gitserverhost.com:2222/your_repo.git
+git clone ssh://git@gitserverhost.com:2222/srv/git/your_repo.git
 ```
 
 To avoid specifying ports on git URLs you can configure your client
@@ -231,7 +223,15 @@ Host my-git-server
 
 Then your can clone git repostiory like this:
 ```sh
-git clone my-git-server:your_repo.git
+git clone my-git-server:/usr/git/your_repo.git
+```
+
+By setting the environment variable `REPOSITORIES_HOME_LINK` to
+`/srv/git` a link will be created into the git user home
+directory so that your git URLs don't require the repository absolute
+path:
+```sh
+git clone my-git-server:git/your_repo.git
 ```
 
 Log into git server through SSH:
