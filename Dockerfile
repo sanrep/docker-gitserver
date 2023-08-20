@@ -34,7 +34,7 @@ RUN set -eux; \
 COPY git-shell-commands ${GIT_HOME}/git-shell-commands
 RUN set -eux; \
     cd ${GIT_HOME}/git-shell-commands; \
-    cmds="ls mkdir rm vi"; \
+    cmds="find ls mkdir rm sed vi"; \
     for c in $cmds; do \
         ln -s $(which $c) .; \
     done

@@ -80,7 +80,7 @@ or
 new some-dir/your-repo
 ```
 
-List repositories:
+List all repositories (including the ones in subdirectories):
 ```sh
 list
 ```
@@ -90,7 +90,7 @@ To clone repository from git server:
 git clone git@gitserverhost.com:2222/your-repo.git
 ```
 
-As described in [Enable Use of Shorter Git URLs](#enable-use-of-shorter-git-urls) this can be shortened to:
+As described in [Enable Use of Shorter Git URLs](#enable-use-of-shorter-git-urls) command can be shortened to:
 ```sh
 git clone my-git-server:your-repo.git
 ```

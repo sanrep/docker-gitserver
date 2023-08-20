@@ -7,6 +7,6 @@ Run 'help' for help, or 'exit' to leave.  Available commands:
 list          Lists all repositories
 new <name>    Creates a new repository <name>. No need to provide .git extension
 
-Other available shell commands: ls mkdir rm vi
+Other available shell commands: find ls mkdir rm sed vi
 
 EOF

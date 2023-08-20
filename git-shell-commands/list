@@ -1,3 +1,5 @@
 #!/bin/sh
 
-ls | grep \.git$
+GIT_REPOSITORIES_PATH=/srv/git
+
+find -L "${GIT_REPOSITORIES_PATH}" -type d -name '*.git' | sed "s%^${GIT_REPOSITORIES_PATH}/%%"
