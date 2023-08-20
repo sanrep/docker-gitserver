@@ -326,10 +326,12 @@ Customizations include:
 - recommended setup is default
 - separation of environment variables into `.env` file
 - usage of environment variable to disable interactive SSH login
-- custom git-shell commands
+- custom git-shell commands (`list` and `new`)
 - creating new git repositories with `main` as initial branch
+- same git and docker image tags which comply with [semantic versioning][5]
 
 [4]: https://github.com/rockstorm101/git-server-docker
+[5]: https://semver.org/
 
 
 [b1]: https://img.shields.io/github/actions/workflow/status/sanrep/docker-gitserver/test-build.yml?branch=main

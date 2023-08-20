@@ -25,13 +25,28 @@ Git server configuration allows use cases which are detailed in the [source READ
 
 ### Run git server
 
-Setup on host:
 
-- Define `GIT_PASSWORD` environment variable with the password for git user in `.env` file
+#### Quick setup
+
+For quick setup (not recommended for production) create directory for git repositories and run:
+```sh
+docker run -d \
+    -v /git/repositories/dir:/srv/git \
+    -p 2222:22 \
+    sanrep/gitserver
+```
+Default password for git user is `12345`.
+
+
+#### Advanced setup
+
+Advanced setup on host:
+
+- Define `GIT_PASSWORD` environment variable with the password for git user in `.env` file (if not set, for testing, default is `12345`)
 - Create directory for git repositories
-- Create directory for host SSH keys and generate them (see [source README][1])
+- Create directory for host SSH keys and generate them (see [source README][2])
 - Create `authorized_keys ` file, and set it's permissions to `600`
-- Add clients' public keys to `authorized_keys` (see [source README][2])
+- Add clients' public keys to `authorized_keys` (see [source README][3])
 
 Then run git server container:
 ```sh
@@ -44,16 +59,15 @@ docker run -d \
     sanrep/gitserver
 ```
 
-Or create `.env` file and use `docker-compose.yml` from [source][3]:
+Or create `.env` file and use `docker-compose.yml` from [source][1]:
 ```sh
 cp .env.sample .env
 vim .env
 docker compose up -d
 ```
 
-[1]: https://github.com/sanrep/docker-gitserver#setup-custom-ssh-host-keys
-[2]: https://github.com/sanrep/docker-gitserver#use-ssh-public-keys
-[3]: https://github.com/sanrep/docker-gitserver
+[2]: https://github.com/sanrep/docker-gitserver#setup-custom-ssh-host-keys
+[3]: https://github.com/sanrep/docker-gitserver#use-ssh-public-keys
 
 
 ### Create New Git Repository
@@ -110,10 +124,12 @@ Customizations include:
 - recommended setup is default
 - separation of environment variables into `.env` file
 - usage of environment variable to disable interactive SSH login
-- custom git-shell commands
+- custom git-shell commands (`list` and `new`)
 - creating new git repositories with `main` as initial branch
+- same git and docker image tags which comply with [semantic versioning][8]
 
 [7]: https://github.com/rockstorm101/git-server-docker
+[8]: https://semver.org/
 
 
 [b1]: https://img.shields.io/github/actions/workflow/status/sanrep/docker-gitserver/test-build.yml?branch=main
