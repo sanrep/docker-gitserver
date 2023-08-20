@@ -75,6 +75,11 @@ Create and initialize bare git repository (`.git` suffix is not needed):
 new your-repo
 ```
 
+or
+```sh
+new some-dir/your-repo
+```
+
 List repositories:
 ```sh
 list

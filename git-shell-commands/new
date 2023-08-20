@@ -1,10 +1,15 @@
 #!/bin/sh
 
-if [ -z "$1" ]
-  then
-	echo "Please provide a name for the repository."
+GIT_REPOSITORIES_PATH=/srv/git
+
+if [ -z "$1" ]; then
+    echo "Please provide a name for the repository."
 else
-	REPO_NAME=`echo $1 | sed 's/\(.*\)\(\.git$\)/\1/g'`.git
-	echo "Creating repository $REPO_NAME"
-	git init --bare --initial-branch=main git/$REPO_NAME
+    REPO_NAME=`echo $1 | sed 's/\(.*\)\(\.git$\)/\1/g'`.git
+    if [ -d "${GIT_REPOSITORIES_PATH}/${REPO_NAME}" ]; then
+        echo "${REPO_NAME} already exists."
+    else
+        echo "Creating repository $REPO_NAME"
+        git init --bare --initial-branch=main "${GIT_REPOSITORIES_PATH}/${REPO_NAME}"
+    fi
 fi
